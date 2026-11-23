@@ -1,0 +1,6 @@
+{
+  "name": "الحمد جملة و تجزئة",
+  "description": "متجر الحمد جملة و تجزئة الإلكتروني للمنتجات الغذائية والمشروبات والعصائر الطبيعية مع لوحة تحكم متكاملة والدفع عند الاستلام.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

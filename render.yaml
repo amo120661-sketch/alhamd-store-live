@@ -1,0 +1,39 @@
+# Render blueprint: two web services sharing ONE Supabase database.
+# The database password is intentionally NOT stored here — Render asks for it
+# when you apply the blueprint (SUPABASE_DB_URL, sync: false).
+services:
+  - type: web
+    name: alhamd-storefront
+    runtime: node
+    rootDir: s
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: SUPABASE_DB_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_EMAILS
+        value: admin@alhamd.local,amn2asayed@gmail.com,admin@alhamd.store
+      - key: APP_URL
+        sync: false
+
+  - type: web
+    name: alhamd-admin
+    runtime: node
+    rootDir: a
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: SUPABASE_DB_URL
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: ADMIN_EMAILS
+        value: admin@alhamd.local,amn2asayed@gmail.com,admin@alhamd.store
+      - key: APP_URL
+        sync: false
