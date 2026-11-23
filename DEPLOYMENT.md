@@ -48,8 +48,12 @@ postgresql://postgres.jzgsnfmxxpuuyldnlquu:<DB_PASSWORD>@aws-1-eu-west-1.pooler.
 
 ```bash
 git push origin main
-# ثم من Railway: Deployments → Deploy (أو CLI: railway up)
+# ثم من Railway: Deployments → Deploy
 ```
+
+> إذا ظهر `Auto deploy unavailable / Could not load branches` في إعدادات الخدمة،
+> فعّل النشر اليدوي من تبويب Deployments (أو أعد ربط المستودع بحساب GitHub
+> الذي يملك صلاحية الدفع). النشر اليدوي يعمل بشكل طبيعي ويستخدم أحدث commit على `main`.
 
 > ملاحظة: أثناء النشر الأول ظهر تعارض `esbuild` مع `vite@8` أثناء `npm ci`؛
 > تم حله بتثبيت `esbuild@^0.28.0` في كلا التطبيقين وتحديث ملفي `package-lock.json`.
