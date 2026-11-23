@@ -40,10 +40,17 @@ ADMIN_EMAILS=admin@alhamd.local,amn2asayed@gmail.com,admin@alhamd.store
 
 > لا ترفع `.env.local` إلى GitHub.
 
-## النشر
+## النشر الحي (Railway)
 
-راجع [DEPLOYMENT.md](DEPLOYMENT.md). ملف `render.yaml` يجهّز خدمتين على Render
-(متجر + أدمن) تشتركان في نفس قاعدة Supabase.
+- المتجر: https://alhamd-store-live-production.up.railway.app
+- لوحة الإدارة: https://alhamd-admin-live-production.up.railway.app
+- الدخول: `admin` / `admin123`
+
+كل خدمة تشير إلى نفس قاعدة Supabase الجديدة. كلا العنوانين يستجيبان على
+`/api/health` ويعملان دون إعداد إضافي.
+
+راجع [DEPLOYMENT.md](DEPLOYMENT.md) لتفاصيل المتغيرات وملف `render.yaml`
+الذي يجهّز خدمتين على Render كبديل.
 
 الهوية البصرية مطابقة للأصل: الشعار، خط Tajawal، الأصفر `#FED700` والأزرق `#007185`،
 واسم "حرق اسعار". الفوتر: برمجة و تصميم islam badawi.

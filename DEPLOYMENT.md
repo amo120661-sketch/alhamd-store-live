@@ -1,6 +1,18 @@
 # نشر المتجر ولوحة الإدارة
 
-GitHub Pages **لا يشغّل** Express/API، لذلك استخدمنا استضافة كاملة (Render).
+GitHub Pages **لا يشغّل** Express/API، لذلك استخدمنا استضافة كاملة (Railway، مع Render كبديل).
+
+## النشر الحي الحالي (Railway)
+
+| الخدمة | الرابط | المشروع/البيئة |
+| --- | --- | --- |
+| المتجر | https://alhamd-store-live-production.up.railway.app | `successful-essence` / `production` |
+| الأدمن | https://alhamd-admin-live-production.up.railway.app | `successful-essence` / `production` |
+
+كلا الخدمتين تستخدمان `Root Directory` مختلفاً (`s` و`a` على التوالي)، وتشتركان في نفس
+`SUPABASE_DB_URL` و`SESSION_SECRET`. المنفذ الذي تستمع له التطبيقات هو `8080`
+(يضبطه Railway تلقائياً عبر `PORT`)، وهو `targetPort` للنطاق العام.
+
 
 ## 1) قاعدة البيانات (تمت)
 
@@ -26,10 +38,21 @@ postgresql://postgres.jzgsnfmxxpuuyldnlquu:<DB_PASSWORD>@aws-1-eu-west-1.pooler.
    `{"ok":true,"db":"connected"}`.
 5. افتح رابط الأدمن وسجّل الدخول بـ `admin` / `admin123`.
 
-## 3) Railway (بديل)
+## 3) Railway (مُطبّق حالياً)
 
 أنشئ مشروعاً لكل مجلد (`s` و `a`)، اضبط متغيرات البيئة نفسها،
 ثم `Build: npm ci && npm run build` و `Start: npm start`.
+
+تم بالفعل إنشاء الخدمتين `alhamd-store-live` (من `s/`) و`alhamd-admin-live` (من `a/`)
+فوق نفس المشروع `successful-essence` بنفس قاعدة البيانات. لإعادة النشر بعد تعديل كود:
+
+```bash
+git push origin main
+# ثم من Railway: Deployments → Deploy (أو CLI: railway up)
+```
+
+> ملاحظة: أثناء النشر الأول ظهر تعارض `esbuild` مع `vite@8` أثناء `npm ci`؛
+> تم حله بتثبيت `esbuild@^0.28.0` في كلا التطبيقين وتحديث ملفي `package-lock.json`.
 
 ## ملاحظات
 

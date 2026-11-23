@@ -79,7 +79,7 @@ export function Footer({ onScrollToSection }: FooterProps) {
           <div className="border-t border-slate-200 px-5 py-4">
             <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-right">
               <p className="text-xs text-slate-600">
-                برمجة و تصميم شركة <i className="fa fa-heart text-rose-500" />{' '}
+                برمجة و تصميم <i className="fa fa-heart text-rose-500" />{' '}
                 <span className="font-bold text-slate-800">islam badawi</span>
               </p>
               <p className="text-xs text-slate-600">
