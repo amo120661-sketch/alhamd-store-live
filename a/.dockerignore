@@ -1,9 +1,0 @@
-node_modules
-dist
-.git
-.env*
-!.env.example
-.playwright-mcp
-.aistudio
-build.log
-*.log
